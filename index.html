@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Arvas Group | Gayrimenkul Yatırım & Danışmanlık</title>
+    <meta name="referrer" content="no-referrer">
+    <title>Arvas Group | Gayrimenkul, Arsa & Danışmanlık</title>
     
     <style>
         :root {
@@ -64,7 +65,7 @@
         }
 
         .logo img {
-            height: 110px; /* Logo iyice büyütüldü */
+            height: 135px; /* Logo iyice büyütüldü */
             width: auto;
             display: block;
             object-fit: contain;
@@ -196,8 +197,7 @@
         /* --- Hizmetlerimiz (Kurumsal) --- */
         .services {
             padding: 80px 5%;
-            background: #ffffff;
-            border-radius: 40px 40px 0 0;
+            background: var(--bg-base);
         }
 
         .services-grid {
@@ -207,7 +207,7 @@
         }
 
         .service-card {
-            background: var(--bg-base);
+            background: #ffffff;
             padding: 35px 30px;
             border-radius: var(--radius-lg);
             transition: all 0.3s ease;
@@ -222,7 +222,8 @@
         /* --- PORTFÖY (Çoklu İlan Modülü) --- */
         .portfolio {
             padding: 80px 5%;
-            background: var(--bg-base);
+            background: #ffffff;
+            border-radius: 40px 40px 0 0;
         }
 
         .portfolio-grid {
@@ -232,7 +233,7 @@
         }
 
         .listing-card {
-            background: #ffffff;
+            background: var(--bg-base);
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-ios);
@@ -395,21 +396,22 @@
 
     <header>
         <a href="#" class="logo">
-            <img src="https://i.hizliresim.com/mkxmft9.png" alt="Arvas Group">
+            <img src="https://i.hizliresim.com/mkxmft9.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span style="display:none; font-size: 1.5rem; font-weight: bold; color: var(--text-main);">Arvas<span style="color:var(--gold);">Group</span></span>
         </a>
         <nav class="nav-links">
             <a href="#anasayfa">Anasayfa</a>
-            <a href="#kurumsal">Kurumsal</a>
             <a href="#portfoy">Portföyümüz</a>
+            <a href="#kurumsal">Kurumsal</a>
             <a href="#iletisim">İletişim</a>
         </nav>
     </header>
 
     <section class="hero reveal" id="anasayfa">
         <div class="hero-text">
-            <span class="tag">Yatırım & Danışmanlık</span>
-            <h1>Gayrimenkulde<br>Güven ve Kazanç.</h1>
-            <p>Arvas Group olarak, premium portföyümüz ve uzman danışman kadromuzla, geleceğinize değer katan en doğru gayrimenkul yatırımlarını sizinle buluşturuyoruz.</p>
+            <span class="tag">Gayrimenkul & Arsa Danışmanlığı</span>
+            <h1>Toprakta Güven,<br>Gelecekte Kazanç.</h1>
+            <p>Arvas Group olarak, değerlenen arsa yatırımlarından premium konut projelerine kadar geniş portföyümüz ve uzman danışman kadromuzla yanınızdayız.</p>
             <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
                 <a href="#portfoy" class="btn">İlanları İncele</a>
                 <a href="#iletisim" class="btn" style="background: transparent; color: var(--text-main); border: 2px solid var(--text-muted);">Danışmanla Görüş</a>
@@ -422,36 +424,6 @@
         </div>
     </section>
 
-    <!-- KURUMSAL / HİZMETLER -->
-    <section class="services reveal" id="kurumsal">
-        <div class="section-header">
-            <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">Profesyonel ve uçtan uca gayrimenkul çözümleri.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <span class="icon">📈</span>
-                <h3>Yatırım Danışmanlığı</h3>
-                <p>Amortisman süresi kısa, yüksek getiri potansiyelli projelerle sermayenizi güvenle büyütüyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">🏛️</span>
-                <h3>Vatandaşlık Hizmetleri</h3>
-                <p>Türkiye'de gayrimenkul yatırımı yoluyla vatandaşlık edinim sürecini hukuki destekle yönetiyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">🔑</span>
-                <h3>Premium Portföy</h3>
-                <p>Yalılar, lüks rezidanslar ve özel villalardan oluşan gizli portföyümüzü VIP müşterilerimize sunuyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">⚖️</span>
-                <h3>Hukuki Süreç Yönetimi</h3>
-                <p>Tapu, sözleşme, ekspertiz ve vergi süreçlerinde uzman avukatlarımızla tam koruma sağlıyoruz.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- PORTFÖY / İLANLAR -->
     <section class="portfolio reveal" id="portfoy">
         <div class="section-header">
@@ -460,6 +432,53 @@
         </div>
         
         <div class="portfolio-grid">
+            <!-- Arsa İlanı 1 -->
+            <div class="listing-card reveal">
+                <div class="listing-img-box">
+                    <div class="listing-badges">
+                        <span class="badge-status" style="background: var(--primary-btn);">Satılık Arsa</span>
+                        <span class="badge-citizenship" style="background:#34c759;">İmarlı</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" alt="Arsa">
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Havalimanı Yakını Ticari İmarlı Arsa</h3>
+                    <p class="listing-location">📍 Arnavutköy, İstanbul</p>
+                    <div class="listing-specs">
+                        <div class="spec-item"><span>📐</span> 5.000 m²</div>
+                        <div class="spec-item"><span>🏗️</span> 1.5 Emsal</div>
+                        <div class="spec-item"><span>🛣️</span> Ana Yola Cephe</div>
+                    </div>
+                    <div class="listing-footer">
+                        <div class="listing-price">₺75.000.000</div>
+                        <a href="#iletisim" class="btn-small">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arsa İlanı 2 -->
+            <div class="listing-card reveal">
+                <div class="listing-img-box">
+                    <div class="listing-badges">
+                        <span class="badge-status" style="background: var(--gold);">Fırsat Arsa</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1629196914163-24707cbf663b?auto=format&fit=crop&w=600&q=80" alt="Arsa 2">
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Deniz Manzaralı Villa Arsası</h3>
+                    <p class="listing-location">📍 Yalıkavak, Bodrum</p>
+                    <div class="listing-specs">
+                        <div class="spec-item"><span>📐</span> 1.200 m²</div>
+                        <div class="spec-item"><span>🏡</span> %20 Konut İmarlı</div>
+                        <div class="spec-item"><span>🌊</span> Kesintisiz Manzara</div>
+                    </div>
+                    <div class="listing-footer">
+                        <div class="listing-price">₺32.500.000</div>
+                        <a href="#iletisim" class="btn-small">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- İlan 1 -->
             <div class="listing-card reveal">
                 <div class="listing-img-box">
@@ -604,6 +623,36 @@
         </div>
     </section>
 
+    <!-- KURUMSAL / HİZMETLER -->
+    <section class="services reveal" id="kurumsal">
+        <div class="section-header">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <p class="section-subtitle">Arsa, gayrimenkul ve yatırım alanında uçtan uca çözümler.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <span class="icon">🌍</span>
+                <h3>Arsa Alım & Satım</h3>
+                <p>Gelişmekte olan bölgelerde, yüksek kazanç potansiyelli imarlı ve tarla vasıflı arsa fırsatları sunuyoruz.</p>
+            </div>
+            <div class="service-card reveal">
+                <span class="icon">📈</span>
+                <h3>Yatırım Danışmanlığı</h3>
+                <p>Hem topraktan hem de bitmiş projelerden, bütçenize en uygun ve güvenli yatırım rotasını çiziyoruz.</p>
+            </div>
+            <div class="service-card reveal">
+                <span class="icon">🔑</span>
+                <h3>Premium Gayrimenkul</h3>
+                <p>Yalılar, lüks rezidanslar ve özel villalardan oluşan gizli portföyümüzü VIP müşterilerimize sunuyoruz.</p>
+            </div>
+            <div class="service-card reveal">
+                <span class="icon">⚖️</span>
+                <h3>Hukuki & İmar Süreçleri</h3>
+                <p>İfraz, tevhid, imar durumu sorgulama ve tapu işlemlerinizde uzman ekibimizle hukuki destek sağlıyoruz.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- İLETİŞİM -->
     <section class="contact-section reveal" id="iletisim">
         <div class="agent-banner">
@@ -626,9 +675,10 @@
                 <input type="tel" placeholder="Telefon Numaranız" required>
                 <select style="padding: 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #fff; font-family: inherit; font-size: 1rem; outline:none;">
                     <option value="">İlgilendiğiniz Konu</option>
+                    <option value="arsa">Arsa Yatırımı / Alım-Satım</option>
                     <option value="satinalma">Gayrimenkul Alımı</option>
                     <option value="satis">Gayrimenkul Satışı</option>
-                    <option value="vatandaslik">Vatandaşlık İşlemleri</option>
+                    <option value="danismanlik">Danışmanlık Hizmetleri</option>
                     <option value="diger">Diğer</option>
                 </select>
                 <textarea placeholder="Mesajınız veya İlan Numarası" rows="3"></textarea>
@@ -639,9 +689,10 @@
 
     <footer>
         <div class="logo-container">
-            <img src="https://i.hizliresim.com/mkxmft9.png" alt="Arvas Group">
+            <img src="https://i.hizliresim.com/mkxmft9.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span style="display:none; font-size: 2rem; font-weight: bold; color: var(--text-main); margin-bottom: 20px;">Arvas<span style="color:var(--gold);">Group</span></span>
         </div>
-        <p>&copy; 2026 Arvas Group Gayrimenkul Yatırım & Danışmanlık.<br>Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2026 Arvas Group Gayrimenkul, Arsa & Danışmanlık.<br>Tüm Hakları Saklıdır.</p>
     </footer>
 
     <!-- 3D Kütüphaneleri -->
