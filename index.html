@@ -79,7 +79,7 @@
         }
 
         .logo img {
-            height: 90px; 
+            height: 110px; 
             width: auto;
             display: block;
             object-fit: contain;
@@ -418,6 +418,38 @@
         .detail-desc { color: var(--text-main); line-height: 1.8; font-size: 1.05rem; }
         .detail-desc h3 { margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
 
+        /* --- RESİM BÜYÜTME (LIGHTBOX) --- */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        #lightbox.active { display: flex; }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: 300;
+            line-height: 1;
+        }
+
         /* --- Hizmetlerimiz (Kurumsal) --- */
         .services {
             padding: 80px 5%;
@@ -672,7 +704,7 @@
             </button>
         </div>
 
-        <div class="detail-hero" id="detail-hero-img"></div>
+        <div class="detail-hero" id="detail-hero-img" onclick="openLightbox(this.style.backgroundImage)" style="cursor: zoom-in;" title="Büyütmek için tıklayın"></div>
 
         <div class="detail-container">
             <div class="detail-main">
@@ -710,6 +742,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- LIGHTBOX (Tam Ekran Resim) -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Büyük Görsel" onclick="event.stopPropagation();">
     </div>
 
     <script>
@@ -890,7 +928,7 @@
                                 <span class="badge-status" style="${item.badgeStyle}">${item.status}</span>
                                 ${extraBadgeHTML}
                             </div>
-                            <img src="${item.img}" alt="${item.title}">
+                            <img src="${item.img}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeefa?auto=format&fit=crop&w=600&q=80'; this.onerror=null;">
                         </div>
                         <div class="listing-content">
                             <h3 class="listing-title">${item.title}</h3>
@@ -954,6 +992,24 @@
                 closeListing();
             }
             window.scrollTo(0, 0);
+        }
+
+        // --- LIGHTBOX YÖNETİMİ ---
+        function openLightbox(bgImgStr) {
+            // style.backgroundImage 'url("...")' formatında döndüğü için içindeki linki ayıklıyoruz
+            const urlMatch = bgImgStr.match(/url\(["']?(.*?)["']?\)/);
+            if (urlMatch && urlMatch[1]) {
+                const imgUrl = urlMatch[1];
+                document.getElementById('lightbox-img').src = imgUrl;
+                document.getElementById('lightbox').classList.add('active');
+                document.body.style.overflow = 'hidden'; // Arka planın kaymasını engelle
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.getElementById('lightbox-img').src = '';
+            document.body.style.overflow = 'auto'; // Sayfa kaydırmayı geri aç
         }
 
         // --- 4. FORM DOĞRULAMA (Validation) ---
