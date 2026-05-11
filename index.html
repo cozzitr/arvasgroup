@@ -6,6 +6,9 @@
     <meta name="referrer" content="no-referrer">
     <title>Arvas Group | Gayrimenkul, Arsa & Danışmanlık</title>
     
+    <!-- Lüks görünüm için Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-base: #f5f5f7; 
@@ -30,10 +33,14 @@
         body {
             background-color: var(--bg-base);
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             line-height: 1.5;
+        }
+
+        h1, h2, h3, .section-title, .logo {
+            font-family: 'Playfair Display', serif;
         }
 
         html { scroll-behavior: smooth; }
@@ -64,8 +71,15 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
         .logo img {
-            height: 110px; /* Logo iyice büyütüldü */
+            height: 90px; 
             width: auto;
             display: block;
             object-fit: contain;
@@ -88,94 +102,111 @@
 
         .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (Lüks Sinematik Görünüm) --- */
         .hero {
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 50px 5% 80px 5%;
-            background: var(--bg-base);
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5%;
             min-height: 85vh;
-            gap: 40px;
+            background: #111;
+            color: #fff;
+            overflow: hidden;
         }
 
-        .hero-text { flex: 1; padding-right: 20px; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.45; 
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .tag {
             display: inline-block;
-            background: rgba(197, 160, 89, 0.15);
+            background: rgba(197, 160, 89, 0.2);
             color: var(--gold);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            backdrop-filter: blur(5px);
         }
 
-        .hero-text h1 {
-            font-size: 4rem;
+        .hero-content h1 {
+            font-size: 5.5rem;
             font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
-        .hero-text p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 95%;
-            font-weight: 400;
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
             display: inline-block;
-            padding: 16px 32px;
-            background: var(--primary-btn);
+            padding: 16px 36px;
+            background: var(--gold);
             color: #fff;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1rem;
             border-radius: 980px;
             transition: all 0.3s ease;
             text-align: center;
-            border: none;
+            border: 2px solid var(--gold);
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(197,160,89,0.2);
         }
 
-        .btn:hover { transform: scale(1.02); opacity: 0.9; background: var(--gold); color: #fff;}
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(197,160,89,0.4); opacity: 1; }
 
-        /* --- 3D Etkileşim Alanı --- */
-        .hero-3d {
-            flex: 1.2;
-            height: 600px;
-            background: var(--bg-base);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08); 
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: none;
         }
 
-        .hero-3d-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+        .btn-outline:hover {
+            background: #fff;
             color: var(--text-main);
-            z-index: 10;
-            pointer-events: none;
+            box-shadow: 0 10px 25px rgba(255,255,255,0.3);
         }
-
-        #canvas-container { width: 100%; height: 100%; cursor: grab; }
-        #canvas-container:active { cursor: grabbing; }
 
         /* --- Ortak Bölüm Başlıkları --- */
         .section-header {
@@ -193,31 +224,6 @@
             font-size: 1.1rem;
             color: var(--text-muted);
         }
-
-        /* --- Hizmetlerimiz (Kurumsal) --- */
-        .services {
-            padding: 80px 5%;
-            background: var(--bg-base);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            padding: 35px 30px;
-            border-radius: var(--radius-lg);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-ios); }
-        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .service-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* --- PORTFÖY (Çoklu İlan Modülü) --- */
         .portfolio {
@@ -240,6 +246,7 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
 
         .listing-card:hover {
@@ -268,6 +275,7 @@
             left: 15px;
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .badge-status { background: var(--primary-btn); color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
@@ -288,11 +296,11 @@
             gap: 15px;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #e5e5ea;
+            flex-wrap: wrap;
         }
 
         .spec-item { font-size: 0.9rem; color: var(--text-main); font-weight: 500; display: flex; align-items: center; gap: 5px; }
-        .spec-item span { color: var(--text-muted); }
 
         .listing-footer {
             display: flex;
@@ -302,8 +310,138 @@
         }
 
         .listing-price { font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
-        .btn-small { padding: 8px 20px; font-size: 0.9rem; background: var(--bg-base); color: var(--text-main); border-radius: 20px; text-decoration: none; font-weight: 500; transition: background 0.3s;}
-        .btn-small:hover { background: var(--gold); color: #fff; }
+        .btn-small { padding: 8px 20px; font-size: 0.9rem; background: #ffffff; color: var(--text-main); border-radius: 20px; font-weight: 600; transition: all 0.3s; border: 1px solid rgba(0,0,0,0.1);}
+        .listing-card:hover .btn-small { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+        /* --- DETAYLI İLAN SAYFASI (MODAL/OVERLAY) --- */
+        #listing-detail-view {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-base);
+            z-index: 1000;
+            overflow-y: auto;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #listing-detail-view.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .detail-navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: saturate(180%) blur(20px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1001;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-back:hover { color: var(--gold); }
+
+        .detail-hero {
+            width: 100%;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: -60px auto 40px auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .detail-main {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-ios);
+        }
+
+        .detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-contact-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-ios);
+            position: sticky;
+            top: 100px;
+        }
+
+        .detail-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
+        .detail-loc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+        .detail-price { font-size: 2.5rem; font-weight: 700; color: var(--gold); margin-bottom: 20px; }
+        
+        .detail-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-spec { display: flex; flex-direction: column; align-items: flex-start; }
+        .detail-spec span.icon { font-size: 1.5rem; margin-bottom: 5px; }
+        .detail-spec span.val { font-weight: 600; color: var(--text-main); }
+        .detail-spec span.lbl { font-size: 0.8rem; color: var(--text-muted); }
+
+        .detail-desc { color: var(--text-main); line-height: 1.8; font-size: 1.05rem; }
+        .detail-desc h3 { margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* --- Hizmetlerimiz (Kurumsal) --- */
+        .services {
+            padding: 80px 5%;
+            background: var(--bg-base);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 35px 30px;
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-ios); }
+        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .service-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* --- İletişim Alanı --- */
         .contact-section {
@@ -322,7 +460,9 @@
         }
         .contact-form-container h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 600; letter-spacing: -0.02em; }
         .contact-form { display: flex; flex-direction: column; gap: 15px; }
-        .contact-form input, .contact-form textarea {
+        
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .contact-form input, .contact-form textarea, .contact-form select {
             padding: 16px;
             border-radius: 12px;
             border: 1px solid rgba(0,0,0,0.08);
@@ -331,7 +471,9 @@
             background: #ffffff;
             transition: all 0.3s;
         }
-        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2); }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2); }
+        
+        .form-error { color: #ff3b30; font-size: 0.85rem; font-weight: 500; display: none; margin-top: -5px; margin-bottom: 5px;}
 
         .agent-banner {
             flex: 1;
@@ -345,7 +487,7 @@
         }
         .agent-info { display: flex; align-items: center; gap: 20px; }
         .agent-avatar { width: 80px; height: 80px; background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; box-shadow: var(--shadow-ios); }
-        .agent-details h4 { font-size: 1.5rem; font-weight: 600; }
+        .agent-details h4 { font-size: 1.5rem; font-weight: 600; margin-bottom: 5px;}
         .agent-details p { color: var(--text-muted); font-size: 1rem; }
 
         /* --- Footer --- */
@@ -358,7 +500,7 @@
         }
 
         footer .logo-container img {
-            height: 160px; /* Footer'da devasa logo */
+            height: 160px;
             width: auto;
             object-fit: contain;
             margin: 0 auto 20px auto;
@@ -367,471 +509,525 @@
         /* --- MOBİL UYUM (Responsive Design) --- */
         @media (max-width: 992px) {
             header { flex-direction: column; padding: 15px; gap: 15px; }
-            .logo img { height: 80px; } /* Mobilde header logosu küçültüldü */
+            .logo img { height: 80px; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
             .nav-links a { margin: 5px 10px; font-size: 0.9rem; }
             
-            .hero { flex-direction: column; text-align: center; padding: 30px 5%; }
-            .hero-text { padding-right: 0; margin-bottom: 30px; }
-            .hero-text h1 { font-size: 3rem; }
-            .hero-text p { max-width: 100%; }
-            
-            .hero-3d { width: 100%; height: 450px; }
+            .hero { padding: 140px 5% 80px 5%; min-height: 70vh; }
+            .hero-content h1 { font-size: 3.5rem; }
             
             .contact-section { flex-direction: column; }
             .agent-banner { padding: 30px; align-items: center; text-align: center;}
             .agent-info { flex-direction: column; }
+
+            .detail-container { grid-template-columns: 1fr; margin-top: -30px; }
+            .detail-hero { height: 35vh; }
+            .detail-main { padding: 25px; }
+            .detail-contact-card { position: relative; top: 0; }
         }
 
         @media (max-width: 480px) {
             .logo img { height: 60px; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .portfolio-grid { grid-template-columns: 1fr; } /* İlanlar mobilde tek sütun */
+            .hero-content h1 { font-size: 2.5rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 2rem; }
             footer .logo-container img { height: 100px; }
+            .detail-specs-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">
-            <img src="https://i.hizliresim.com/lmcoh5g.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <span style="display:none; font-size: 1.5rem; font-weight: bold; color: var(--text-main);">Arvas<span style="color:var(--gold);">Group</span></span>
-        </a>
-        <nav class="nav-links">
-            <a href="#anasayfa">Anasayfa</a>
-            <a href="#portfoy">Portföyümüz</a>
-            <a href="#kurumsal">Kurumsal</a>
-            <a href="#iletisim">İletişim</a>
-        </nav>
-    </header>
+    <!-- ANA SAYFA KAPSAYICISI -->
+    <div id="main-view">
+        <header>
+            <a href="#" class="logo" onclick="resetToHome(event)">
+                <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none; font-size: 1.5rem; font-weight: bold; color: var(--text-main);">Arvas<span style="color:var(--gold);">Group</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#anasayfa" onclick="resetToHome(event)">Anasayfa</a>
+                <a href="#portfoy" onclick="resetToHome(event)">Portföyümüz</a>
+                <a href="#kurumsal" onclick="resetToHome(event)">Kurumsal</a>
+                <a href="#iletisim" onclick="resetToHome(event)">İletişim</a>
+            </nav>
+        </header>
 
-    <section class="hero reveal" id="anasayfa">
-        <div class="hero-text">
-            <span class="tag">Gayrimenkul & Arsa Danışmanlığı</span>
-            <h1>Toprakta Güven,<br>Gelecekte Kazanç.</h1>
-            <p>Arvas Group olarak, değerlenen arsa yatırımlarından premium konut projelerine kadar geniş portföyümüz ve uzman danışman kadromuzla yanınızdayız.</p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
-                <a href="#portfoy" class="btn">İlanları İncele</a>
-                <a href="#iletisim" class="btn" style="background: transparent; color: var(--text-main); border: 2px solid var(--text-muted);">Danışmanla Görüş</a>
-            </div>
-        </div>
-
-        <div class="hero-3d">
-            <div class="hero-3d-badge">✨ İnteraktif Proje Mimarisi</div>
-            <div id="canvas-container"></div>
-        </div>
-    </section>
-
-    <!-- PORTFÖY / İLANLAR -->
-    <section class="portfolio reveal" id="portfoy">
-        <div class="section-header">
-            <h2 class="section-title">Güncel İlanlarımız</h2>
-            <p class="section-subtitle">Özenle seçilmiş, yatırıma ve yaşama uygun premium projeler.</p>
-        </div>
-        
-        <div class="portfolio-grid">
-            <!-- Arsa İlanı 1 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status" style="background: var(--primary-btn);">Satılık Arsa</span>
-                        <span class="badge-citizenship" style="background:#34c759;">İmarlı</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" alt="Arsa">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Havalimanı Yakını Ticari İmarlı Arsa</h3>
-                    <p class="listing-location">📍 Arnavutköy, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>📐</span> 5.000 m²</div>
-                        <div class="spec-item"><span>🏗️</span> 1.5 Emsal</div>
-                        <div class="spec-item"><span>🛣️</span> Ana Yola Cephe</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺75.000.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
+        <section class="hero reveal" id="anasayfa">
+            <div class="hero-content">
+                <span class="tag">Gayrimenkul, Arsa & Yatırım</span>
+                <h1>Toprakta Güven,<br>Gelecekte Kazanç.</h1>
+                <p>Arvas Group olarak, değerlenen arsa yatırımlarından premium konut projelerine kadar geniş portföyümüz ve uzman danışman kadromuzla yanınızdayız.</p>
+                <div class="hero-buttons">
+                    <a href="#portfoy" class="btn">İlanları İncele</a>
+                    <a href="#iletisim" class="btn btn-outline">Danışmanla Görüş</a>
                 </div>
             </div>
+        </section>
 
-            <!-- Arsa İlanı 2 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status" style="background: var(--gold);">Fırsat Arsa</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1629196914163-24707cbf663b?auto=format&fit=crop&w=600&q=80" alt="Arsa 2">
+        <!-- PORTFÖY / İLANLAR (Dinamik Render Edilecek) -->
+        <section class="portfolio reveal" id="portfoy">
+            <div class="section-header">
+                <h2 class="section-title">Güncel Portföyümüz</h2>
+                <p class="section-subtitle">Özenle seçilmiş, yatırıma ve yaşama uygun premium projeler ile kazançlı arsalar.</p>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- İlanlar JavaScript ile buraya yüklenecek -->
+            </div>
+        </section>
+
+        <!-- KURUMSAL / HİZMETLER -->
+        <section class="services reveal" id="kurumsal">
+            <div class="section-header">
+                <h2 class="section-title">Hizmetlerimiz</h2>
+                <p class="section-subtitle">Arsa, gayrimenkul ve yatırım alanında uçtan uca çözümler.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <span class="icon">🌍</span>
+                    <h3>Arsa Alım & Satım</h3>
+                    <p>Gelişmekte olan bölgelerde, yüksek kazanç potansiyelli imarlı ve tarla vasıflı arsa fırsatları sunuyoruz.</p>
                 </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Deniz Manzaralı Villa Arsası</h3>
-                    <p class="listing-location">📍 Yalıkavak, Bodrum</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>📐</span> 1.200 m²</div>
-                        <div class="spec-item"><span>🏡</span> %20 Konut İmarlı</div>
-                        <div class="spec-item"><span>🌊</span> Kesintisiz Manzara</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺32.500.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
+                <div class="service-card reveal">
+                    <span class="icon">📈</span>
+                    <h3>Yatırım Danışmanlığı</h3>
+                    <p>Hem topraktan hem de bitmiş projelerden, bütçenize en uygun ve güvenli yatırım rotasını çiziyoruz.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="icon">🔑</span>
+                    <h3>Premium Gayrimenkul</h3>
+                    <p>Yalılar, lüks rezidanslar ve özel villalardan oluşan gizli portföyümüzü VIP müşterilerimize sunuyoruz.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="icon">⚖️</span>
+                    <h3>Hukuki & İmar Süreçleri</h3>
+                    <p>İfraz, tevhid, imar durumu sorgulama ve tapu işlemlerinizde uzman ekibimizle hukuki destek sağlıyoruz.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- İlan 1 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status">Satılık</span>
-                        <span class="badge-citizenship">Vatandaşlığa Uygun</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Villa">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Modern Akıllı Villa</h3>
-                    <p class="listing-location">📍 Yalıkavak, Bodrum</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🛏</span> 5+2</div>
-                        <div class="spec-item"><span>🛁</span> 4 Banyo</div>
-                        <div class="spec-item"><span>📐</span> 450 m² Brüt</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺42.500.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- İlan 2 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status" style="background:#ff3b30;">Ön Satış</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rezidans">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Zorlu Center Teras Evler</h3>
-                    <p class="listing-location">📍 Beşiktaş, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🛏</span> 3+1</div>
-                        <div class="spec-item"><span>🛁</span> 2 Banyo</div>
-                        <div class="spec-item"><span>📐</span> 220 m² Net</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺85.000.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- İlan 3 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status">Satılık</span>
-                        <span class="badge-citizenship">Krediye Uygun</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80" alt="Daire">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Boğaz Manzaralı Yalı Dairesi</h3>
-                    <p class="listing-location">📍 Bebek, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🛏</span> 4+1</div>
-                        <div class="spec-item"><span>🛁</span> 3 Banyo</div>
-                        <div class="spec-item"><span>📐</span> 310 m² Brüt</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺120.000.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
-                </div>
-            </div>
-
-             <!-- İlan 4 -->
-             <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status">Kiralık</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Plaza">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">A Sınıfı Plaza Katı</h3>
-                    <p class="listing-location">📍 Levent, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🏢</span> Tam Kat</div>
-                        <div class="spec-item"><span>🚗</span> 10 Araçlık Otopark</div>
-                        <div class="spec-item"><span>📐</span> 850 m² Net</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺350.000 <span style="font-size: 0.8rem; font-weight: normal; color: #888;">/ ay</span></div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
+        <!-- İLETİŞİM -->
+        <section class="contact-section reveal" id="iletisim">
+            <div class="agent-banner">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 5px;">Yatırım Danışmanınız</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 30px;">Doğru mülk için uzman ekibimizle hemen görüşün.</p>
+                <div class="agent-info">
+                    <div class="agent-avatar">👔</div>
+                    <div class="agent-details">
+                        <h4>Muhammed Yakup Arvas</h4>
+                        <p>Arvas Group - Yatırım Uzmanı</p>
+                        <p style="margin-top: 8px; color: var(--gold); font-weight: 600; font-size: 1.1rem;">+90 (552) 848 48 65</p>
+                        <p style="font-size: 0.9rem;">info@arvasgroup.com</p>
                     </div>
                 </div>
             </div>
             
-            <!-- İlan 5 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status">Satılık</span>
-                        <span class="badge-citizenship">Yabancıya Satışa Uygun</span>
+            <div class="contact-form-container">
+                <h3>Sizi Arayalım</h3>
+                <form class="contact-form" id="main-contact-form" onsubmit="handleFormSubmit(event, 'main')">
+                    <div class="form-group">
+                        <input type="text" id="main-name" placeholder="Adınız Soyadınız (Zorunlu)" required minlength="3">
+                        <span class="form-error" id="main-error-name">Lütfen geçerli bir ad soyad giriniz.</span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Villa 2">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Orman Manzaralı Taş Ev</h3>
-                    <p class="listing-location">📍 Göktürk, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🛏</span> 6+2</div>
-                        <div class="spec-item"><span>🌳</span> 1 Dönüm Bahçe</div>
-                        <div class="spec-item"><span>📐</span> 550 m² Brüt</div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="main-phone" placeholder="Telefon Numaranız (Zorunlu, Örn: 0555...)" required minlength="10" maxlength="15" pattern="[0-9\s\+\-\(\)]+">
+                        <span class="form-error" id="main-error-phone">Lütfen geçerli bir telefon numarası giriniz (En az 10 hane).</span>
                     </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺65.000.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
-                </div>
+                    
+                    <select id="main-subject">
+                        <option value="">İlgilendiğiniz Konu (Opsiyonel)</option>
+                        <option value="arsa">Arsa Yatırımı / Alım-Satım</option>
+                        <option value="satinalma">Gayrimenkul Alımı</option>
+                        <option value="satis">Gayrimenkul Satışı</option>
+                        <option value="danismanlik">Danışmanlık Hizmetleri</option>
+                    </select>
+                    
+                    <textarea id="main-msg" placeholder="Mesajınız veya İlan Numarası (Opsiyonel)" rows="3"></textarea>
+                    
+                    <button type="submit" class="btn" id="main-submit-btn">Talep Gönder</button>
+                    <p id="main-success-msg" style="color: #34c759; font-weight: 600; display: none; margin-top: 10px;">Talebiniz başarıyla alındı. Size en kısa sürede dönüş yapacağız!</p>
+                </form>
             </div>
+        </section>
 
-            <!-- İlan 6 -->
-            <div class="listing-card reveal">
-                <div class="listing-img-box">
-                    <div class="listing-badges">
-                        <span class="badge-status" style="background: var(--gold);">Fırsat</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Daire 2">
-                </div>
-                <div class="listing-content">
-                    <h3 class="listing-title">Şehir Merkezinde Çatı Dubleksi</h3>
-                    <p class="listing-location">📍 Nişantaşı, İstanbul</p>
-                    <div class="listing-specs">
-                        <div class="spec-item"><span>🛏</span> 3+2</div>
-                        <div class="spec-item"><span>🌆</span> 80m² Teras</div>
-                        <div class="spec-item"><span>📐</span> 280 m² Net</div>
-                    </div>
-                    <div class="listing-footer">
-                        <div class="listing-price">₺48.500.000</div>
-                        <a href="#iletisim" class="btn-small">Detaylar</a>
-                    </div>
-                </div>
+        <footer>
+            <div class="logo-container" onclick="resetToHome(event)" style="cursor: pointer;">
+                <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none; font-size: 2rem; font-weight: bold; color: var(--text-main); margin-bottom: 20px;">Arvas<span style="color:var(--gold);">Group</span></span>
             </div>
+            <p>&copy; 2026 Arvas Group Gayrimenkul, Arsa & Danışmanlık.<br>Tüm Hakları Saklıdır.</p>
+        </footer>
+    </div>
 
+    <!-- İLAN DETAY SAYFASI (GİZLİ MODAL) -->
+    <div id="listing-detail-view">
+        <div class="detail-navbar">
+            <a href="#" class="logo" onclick="resetToHome(event)">
+                <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" style="height: 50px;">
+            </a>
+            <button class="btn-back" onclick="closeListing()">
+                <span style="font-size: 1.4rem;">←</span> Geri Dön
+            </button>
         </div>
-    </section>
 
-    <!-- KURUMSAL / HİZMETLER -->
-    <section class="services reveal" id="kurumsal">
-        <div class="section-header">
-            <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">Arsa, gayrimenkul ve yatırım alanında uçtan uca çözümler.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <span class="icon">🌍</span>
-                <h3>Arsa Alım & Satım</h3>
-                <p>Gelişmekte olan bölgelerde, yüksek kazanç potansiyelli imarlı ve tarla vasıflı arsa fırsatları sunuyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">📈</span>
-                <h3>Yatırım Danışmanlığı</h3>
-                <p>Hem topraktan hem de bitmiş projelerden, bütçenize en uygun ve güvenli yatırım rotasını çiziyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">🔑</span>
-                <h3>Premium Gayrimenkul</h3>
-                <p>Yalılar, lüks rezidanslar ve özel villalardan oluşan gizli portföyümüzü VIP müşterilerimize sunuyoruz.</p>
-            </div>
-            <div class="service-card reveal">
-                <span class="icon">⚖️</span>
-                <h3>Hukuki & İmar Süreçleri</h3>
-                <p>İfraz, tevhid, imar durumu sorgulama ve tapu işlemlerinizde uzman ekibimizle hukuki destek sağlıyoruz.</p>
-            </div>
-        </div>
-    </section>
+        <div class="detail-hero" id="detail-hero-img"></div>
 
-    <!-- İLETİŞİM -->
-    <section class="contact-section reveal" id="iletisim">
-        <div class="agent-banner">
-            <h2 class="section-title" style="text-align: left; margin-bottom: 5px;">Yatırım Danışmanınız</h2>
-            <p class="section-subtitle" style="text-align: left; margin-bottom: 30px;">Doğru mülk için uzman ekibimizle hemen görüşün.</p>
-            <div class="agent-info">
-                <div class="agent-avatar">👔</div>
-                <div class="agent-details">
-                    <h4>Hakan Erdem</h4>
-                    <p>Arvas Group - Yönetici Ortak</p>
-                    <p style="margin-top: 8px; color: var(--gold); font-weight: 600;">+90 (555) 123 45 67</p>
-                    <p style="font-size: 0.9rem;">info@arvasgroup.com</p>
+        <div class="detail-container">
+            <div class="detail-main">
+                <span class="tag" id="detail-badge" style="background: var(--primary-btn); color: #fff;">Satılık</span>
+                <h1 class="detail-title" id="detail-title">İlan Başlığı</h1>
+                <p class="detail-loc" id="detail-loc">📍 Konum</p>
+                
+                <div class="detail-specs-grid" id="detail-specs">
+                    <!-- Dinamik Özellikler -->
+                </div>
+
+                <div class="detail-desc" id="detail-desc">
+                    <!-- Dinamik Açıklama -->
+                </div>
+            </div>
+
+            <div class="detail-sidebar">
+                <div class="detail-contact-card">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Satış Fiyatı</p>
+                    <div class="detail-price" id="detail-price">₺0</div>
+                    
+                    <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px;">İlan Sahibi</h4>
+                    <div class="agent-info" style="margin-bottom: 25px;">
+                        <div class="agent-avatar" style="width: 60px; height: 60px; font-size: 1.8rem;">👔</div>
+                        <div class="agent-details">
+                            <h4 style="font-size: 1.1rem; margin-bottom: 2px;">Muhammed Yakup Arvas</h4>
+                            <p style="font-size: 0.85rem;">Yatırım Danışmanı</p>
+                        </div>
+                    </div>
+
+                    <a href="tel:+905528484865" class="btn" style="display: block; width: 100%; text-align: center; margin-bottom: 10px; background: #34c759; border-color: #34c759;">Hemen Ara</a>
+                    <a href="https://wa.me/905528484865" target="_blank" class="btn btn-outline" style="display: block; width: 100%; text-align: center; border-color: #e5e5ea; color: var(--text-main);">WhatsApp'tan Yaz</a>
                 </div>
             </div>
         </div>
-        <div class="contact-form-container">
-            <h3>Sizi Arayalım</h3>
-            <form class="contact-form">
-                <input type="text" placeholder="Adınız Soyadınız" required>
-                <input type="tel" placeholder="Telefon Numaranız" required>
-                <select style="padding: 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: #fff; font-family: inherit; font-size: 1rem; outline:none;">
-                    <option value="">İlgilendiğiniz Konu</option>
-                    <option value="arsa">Arsa Yatırımı / Alım-Satım</option>
-                    <option value="satinalma">Gayrimenkul Alımı</option>
-                    <option value="satis">Gayrimenkul Satışı</option>
-                    <option value="danismanlik">Danışmanlık Hizmetleri</option>
-                    <option value="diger">Diğer</option>
-                </select>
-                <textarea placeholder="Mesajınız veya İlan Numarası" rows="3"></textarea>
-                <button type="button" class="btn" onclick="this.innerText='Mesaj İletildi ✓'; this.style.backgroundColor='#34c759';">Talep Gönder</button>
-            </form>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="logo-container">
-            <img src="https://i.hizliresim.com/lmcoh5g.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <span style="display:none; font-size: 2rem; font-weight: bold; color: var(--text-main); margin-bottom: 20px;">Arvas<span style="color:var(--gold);">Group</span></span>
-        </div>
-        <p>&copy; 2026 Arvas Group Gayrimenkul, Arsa & Danışmanlık.<br>Tüm Hakları Saklıdır.</p>
-    </footer>
-
-    <!-- 3D Kütüphaneleri -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    
     <script>
+        // --- 1. İLAN VERİ TABANI (Data) ---
+        const listings = [
+            {
+                id: 1,
+                type: 'arsa',
+                status: 'Satılık Arsa',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                extraBadge: { text: 'Ticari İmarlı', style: 'background: #34c759; color: #fff;' },
+                img: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+                title: 'TEM Gişelere Yakın Ticari Arsa',
+                location: '📍 Abdurrahmangazi Mah, Sultanbeyli',
+                specs: [
+                    { icon: '📐', val: '2.500 m²', lbl: 'Yüzölçümü' },
+                    { icon: '🏗️', val: '1.5', lbl: 'Emsal' },
+                    { icon: '🛣️', val: 'Ana Cadde', lbl: 'Cephe' },
+                    { icon: '📄', val: 'Müstakil', lbl: 'Tapu' }
+                ],
+                price: '₺45.000.000',
+                desc: '<p>Sultanbeyli merkezde, TEM otoyolu gişelerine ve yapımı devam eden metro durağına yürüme mesafesinde, ticari imarlı fırsat arsa.</p><br><h3>Özellikler</h3><ul><li>Alışveriş merkezi, plaza veya hastane yapımına uygun.</li><li>Krediye uygun müstakil tapu.</li><li>Hafriyat sorunu olmayan düz zemin.</li></ul>'
+            },
+            {
+                id: 2,
+                type: 'arsa',
+                status: 'Fırsat',
+                badgeStyle: 'background: var(--gold); color: #fff;',
+                img: 'https://images.unsplash.com/photo-1506869640319-fea1a2e1ebc4?auto=format&fit=crop&w=1200&q=80',
+                title: 'Lojistik & Depolama Arsası',
+                location: '📍 Hasanpaşa, Sultanbeyli',
+                specs: [
+                    { icon: '📐', val: '8.000 m²', lbl: 'Yüzölçümü' },
+                    { icon: '🏭', val: 'Sanayi', lbl: 'İmar Durumu' },
+                    { icon: '🚛', val: 'Tır Girişi', lbl: 'Ulaşım' }
+                ],
+                price: '₺95.000.000',
+                desc: '<p>Sultanbeyli Hasanpaşa sanayi bölgesinde, antrepo ve lojistik depo inşasına uygun devasa sanayi arsası. Tır manevra alanı ve ana yol bağlantısı kusursuzdur.</p>'
+            },
+            {
+                id: 3,
+                type: 'arsa',
+                status: 'Satılık Arsa',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                extraBadge: { text: 'Konut İmarlı', style: 'background: #007aff; color: #fff;' },
+                img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+                title: 'Site Projesi İçin Konut İmarlı Arsa',
+                location: '📍 Fatih Mah, Sultanbeyli',
+                specs: [
+                    { icon: '📐', val: '4.200 m²', lbl: 'Yüzölçümü' },
+                    { icon: '🏢', val: 'Konut', lbl: 'İmar Durumu' },
+                    { icon: '🏗️', val: '4 Kat', lbl: 'İzin' }
+                ],
+                price: '₺55.000.000',
+                desc: '<p>Gelişmekte olan Fatih mahallesinde, butik site projesi geliştirmeye uygun, 4 kat imar izinli konut arsası. Bölgedeki emsal projelere göre yüksek getiri potansiyeli sunar.</p>'
+            },
+            {
+                id: 4,
+                type: 'arsa',
+                status: 'Satılık Arsa',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                img: 'https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&w=1200&q=80',
+                title: 'Gelişim Bölgesinde Yatırımlık Parsel',
+                location: '📍 Adil Mah, Sultanbeyli',
+                specs: [
+                    { icon: '📐', val: '1.500 m²', lbl: 'Yüzölçümü' },
+                    { icon: '🏡', val: 'Konut', lbl: 'İmar Durumu' },
+                    { icon: '🛣️', val: 'Sokak', lbl: 'Cephe' }
+                ],
+                price: '₺18.000.000',
+                desc: '<p>Adil mahallesinde, müstakil tapulu, yeni imar yolları açılmış bölgede yatırımlık köşe parsel.</p>'
+            },
+            {
+                id: 5,
+                type: 'konut',
+                status: 'Satılık',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                extraBadge: { text: 'Sıfır Villa', style: 'background: var(--gold); color: #fff;' },
+                img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+                title: 'Aydos Ormanı Manzaralı Lüks Villa',
+                location: '📍 Battalgazi, Sultanbeyli',
+                specs: [
+                    { icon: '🛏', val: '5+2', lbl: 'Oda Sayısı' },
+                    { icon: '🛁', val: '3 Banyo', lbl: 'Islak Zemin' },
+                    { icon: '📐', val: '320 m²', lbl: 'Brüt Alan' },
+                    { icon: '🌲', val: 'Orman', lbl: 'Manzara' }
+                ],
+                price: '₺24.500.000',
+                desc: '<p>Aydos ormanının hemen eteklerinde, doğayla iç içe, müstakil bahçeli ve birinci sınıf işçilikle inşa edilmiş sıfır lüks villa.</p>'
+            },
+            {
+                id: 6,
+                type: 'konut',
+                status: 'Satılık',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+                title: 'Merkezde Lüks 3+1 Daire',
+                location: '📍 Mehmet Akif, Sultanbeyli',
+                specs: [
+                    { icon: '🛏', val: '3+1', lbl: 'Oda Sayısı' },
+                    { icon: '🚗', val: 'Kapalı', lbl: 'Otopark' },
+                    { icon: '📐', val: '145 m²', lbl: 'Brüt Alan' },
+                    { icon: '🚇', val: '5 dk', lbl: 'Metroya' }
+                ],
+                price: '₺6.800.000',
+                desc: '<p>Sultanbeyli Meydanı\'na ve yeni açılacak metro durağına sadece 5 dakika yürüme mesafesinde, ebeveyn banyolu, modern mimariye sahip lüks daire.</p>'
+            },
+            {
+                id: 7,
+                type: 'konut',
+                status: 'Ön Satış',
+                badgeStyle: 'background: #ff3b30; color: #fff;',
+                img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+                title: 'Prestij Park Evleri',
+                location: '📍 Turgut Reis, Sultanbeyli',
+                specs: [
+                    { icon: '🛏', val: '4+1', lbl: 'Oda Sayısı' },
+                    { icon: '🌆', val: 'Var', lbl: 'Geniş Teras' },
+                    { icon: '📐', val: '180 m²', lbl: 'Net Alan' },
+                    { icon: '🏢', val: 'Site İçi', lbl: 'Durum' }
+                ],
+                price: '₺9.500.000',
+                desc: '<p>Turgut Reis mahallesinin en prestijli yeni projesinde, güvenlikli site içerisinde, geniş teraslı çatı dubleksi fırsatı.</p>'
+            },
+            {
+                id: 8,
+                type: 'ticari',
+                status: 'Satılık',
+                badgeStyle: 'background: var(--primary-btn); color: #fff;',
+                extraBadge: { text: 'Yüksek Kira Getirisi', style: 'background: var(--gold); color: #fff;' },
+                img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+                title: 'Ana Cadde Üzeri Kurumsal Kiracılı Dükkan',
+                location: '📍 Merkez, Sultanbeyli',
+                specs: [
+                    { icon: '🏬', val: 'Dükkan', lbl: 'Ticari' },
+                    { icon: '📐', val: '400 m²', lbl: 'Brüt Alan' },
+                    { icon: '💰', val: 'Kurumsal', lbl: 'Kiracı' }
+                ],
+                price: '₺35.000.000',
+                desc: '<p>Sultanbeyli Fatih Bulvarı (Ana Cadde) üzerinde, yaya ve araç trafiğinin en yoğun olduğu bölgede, kurumsal market kiracılı yatırımlık ticari alan.</p>'
+            },
+            {
+                id: 9,
+                type: 'ticari',
+                status: 'Kiralık',
+                badgeStyle: 'background: #34c759; color: #fff;',
+                img: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
+                title: 'Gişeler Mevkii Plaza Katı',
+                location: '📍 Hasanpaşa, Sultanbeyli',
+                specs: [
+                    { icon: '🏢', val: 'Tam Kat', lbl: 'Ofis Tipi' },
+                    { icon: '🚗', val: '5 Araç', lbl: 'Otopark' },
+                    { icon: '📐', val: '350 m²', lbl: 'Net Alan' }
+                ],
+                price: '₺120.000 / ay',
+                desc: '<p>Sultanbeyli gişelere çok yakın konumda, şirket genel merkezi veya çağrı merkezi olmaya uygun, yapılı, masrafsız tam kat plaza ofisi.</p>'
+            }
+        ];
+
+        // --- 2. İLANLARI ANA SAYFAYA RENDER ETME ---
+        function renderListings() {
+            const container = document.getElementById('portfolio-container');
+            container.innerHTML = '';
+
+            listings.forEach(item => {
+                let extraBadgeHTML = '';
+                if(item.extraBadge) {
+                    extraBadgeHTML = `<span class="badge-citizenship" style="${item.extraBadge.style}">${item.extraBadge.text}</span>`;
+                }
+
+                // Önizleme için ilk 3 spec yeterli
+                const specsPreview = item.specs.slice(0, 3).map(s => `<div class="spec-item"><span>${s.icon}</span> ${s.val}</div>`).join('');
+
+                const cardHTML = `
+                    <div class="listing-card reveal active" onclick="openListing(${item.id})">
+                        <div class="listing-img-box">
+                            <div class="listing-badges">
+                                <span class="badge-status" style="${item.badgeStyle}">${item.status}</span>
+                                ${extraBadgeHTML}
+                            </div>
+                            <img src="${item.img}" alt="${item.title}">
+                        </div>
+                        <div class="listing-content">
+                            <h3 class="listing-title">${item.title}</h3>
+                            <p class="listing-location">${item.location}</p>
+                            <div class="listing-specs">
+                                ${specsPreview}
+                            </div>
+                            <div class="listing-footer">
+                                <div class="listing-price">${item.price}</div>
+                                <span class="btn-small">İncele</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // --- 3. DETAY SAYFASI YÖNETİMİ ---
+        const mainView = document.getElementById('main-view');
+        const detailView = document.getElementById('listing-detail-view');
+
+        function openListing(id) {
+            const item = listings.find(l => l.id === id);
+            if(!item) return;
+
+            // Verileri Doldur
+            document.getElementById('detail-hero-img').style.backgroundImage = `url('${item.img}')`;
+            document.getElementById('detail-title').innerText = item.title;
+            document.getElementById('detail-loc').innerText = item.location;
+            document.getElementById('detail-price').innerText = item.price;
+            document.getElementById('detail-badge').innerText = item.status;
+            document.getElementById('detail-badge').style.cssText = item.badgeStyle + ' padding: 5px 15px; border-radius:20px; font-weight:600; font-size:0.85rem; margin-bottom:15px; display:inline-block;';
+            document.getElementById('detail-desc').innerHTML = item.desc;
+
+            // Özellikler Grid
+            const specsContainer = document.getElementById('detail-specs');
+            specsContainer.innerHTML = item.specs.map(s => `
+                <div class="detail-spec">
+                    <span class="icon">${s.icon}</span>
+                    <span class="val">${s.val}</span>
+                    <span class="lbl">${s.lbl}</span>
+                </div>
+            `).join('');
+
+            // Görünüm Değiştir
+            mainView.style.display = 'none';
+            detailView.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function closeListing() {
+            detailView.classList.remove('active');
+            mainView.style.display = 'block';
+        }
+
+        // Logoya basınca her şeyi sıfırla ana sayfaya dön
+        function resetToHome(e) {
+            e.preventDefault();
+            if(detailView.classList.contains('active')) {
+                closeListing();
+            }
+            window.scrollTo(0, 0);
+        }
+
+        // --- 4. FORM DOĞRULAMA (Validation) ---
+        function handleFormSubmit(e, prefix) {
+            e.preventDefault(); // Sayfanın yenilenmesini durdur
+
+            const nameInput = document.getElementById(`${prefix}-name`);
+            const phoneInput = document.getElementById(`${prefix}-phone`);
+            
+            const errorName = document.getElementById(`${prefix}-error-name`);
+            const errorPhone = document.getElementById(`${prefix}-error-phone`);
+            const successMsg = document.getElementById(`${prefix}-success-msg`);
+            const submitBtn = document.getElementById(`${prefix}-submit-btn`);
+
+            let isValid = true;
+
+            // Ad Soyad Kontrolü (En az 3 harf)
+            if(nameInput.value.trim().length < 3) {
+                errorName.style.display = 'block';
+                nameInput.style.borderColor = '#ff3b30';
+                isValid = false;
+            } else {
+                errorName.style.display = 'none';
+                nameInput.style.borderColor = 'rgba(0,0,0,0.08)';
+            }
+
+            // Telefon Kontrolü (En az 10 karakter - Sayısal veya boşluklu)
+            const phoneVal = phoneInput.value.replace(/[^0-9]/g, ''); // Sadece rakamları al
+            if(phoneVal.length < 10) {
+                errorPhone.style.display = 'block';
+                phoneInput.style.borderColor = '#ff3b30';
+                isValid = false;
+            } else {
+                errorPhone.style.display = 'none';
+                phoneInput.style.borderColor = 'rgba(0,0,0,0.08)';
+            }
+
+            // Eğer form hatasızsa gönderim simülasyonu
+            if(isValid) {
+                submitBtn.innerText = 'Gönderiliyor...';
+                submitBtn.style.opacity = '0.7';
+                
+                // 1 saniyelik sahte bekleme süresi (Profesyonel his için)
+                setTimeout(() => {
+                    submitBtn.innerText = 'Mesaj İletildi ✓';
+                    submitBtn.style.backgroundColor = '#34c759';
+                    submitBtn.style.borderColor = '#34c759';
+                    submitBtn.style.opacity = '1';
+                    successMsg.style.display = 'block';
+                    
+                    // Formu Temizle
+                    document.getElementById(`${prefix}-contact-form`).reset();
+                }, 1000);
+            }
+        }
+
         // --- SCROLL ANİMASYONLARI ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
+                var elementVisible = 50;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); 
-
-        // --- 3D SAHNE KODLARI ---
-        let camera, scene, renderer, controls;
-
-        window.onload = function () {
-            const container = document.getElementById('canvas-container');
-            if(!container) return; // Hata almamak için
-            
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xf5f5f7); 
-            scene.fog = new THREE.FogExp2(0xf5f5f7, 0.015);
-            
-            camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.set(20, 15, 25); 
-
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-            renderer.outputEncoding = THREE.sRGBEncoding; 
-            renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            container.appendChild(renderer.domElement);
-
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.autoRotate = true; 
-            controls.autoRotateSpeed = 0.8;
-            controls.maxPolarAngle = Math.PI / 2 + 0.02; 
-            controls.minDistance = 15;
-            controls.maxDistance = 50;
-            controls.target.set(0, 2, 0); 
-
-            // Işıklar
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); 
-            scene.add(ambientLight);
-
-            const dirLight = new THREE.DirectionalLight(0xfff5e6, 1.5); 
-            dirLight.position.set(20, 30, 10);
-            dirLight.castShadow = true;
-            dirLight.shadow.mapSize.width = 2048;
-            dirLight.shadow.mapSize.height = 2048;
-            scene.add(dirLight);
-
-            // Ev Modeli (Temsili Mimari)
-            const houseGroup = new THREE.Group();
-
-            const matConcrete = new THREE.MeshStandardMaterial({ color: 0x555555, roughness: 0.9 });
-            const matPlaster = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.2 });
-            const matWood = new THREE.MeshStandardMaterial({ color: 0x4a2e15, roughness: 0.7 });
-            const matMetalDark = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.3, metalness: 0.7 });
-            const matGlass = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0.1, roughness: 0.05, transmission: 0.95, ior: 1.5, transparent: true });
-
-            // Zemin
-            const base = new THREE.Mesh(new THREE.BoxGeometry(20, 0.5, 16), matConcrete);
-            base.position.y = 0.25; base.castShadow = true; base.receiveShadow = true;
-            houseGroup.add(base);
-
-            // Alt Kat
-            const groundHeight = 3.5;
-            const backWall = new THREE.Mesh(new THREE.BoxGeometry(14, groundHeight, 0.5), matConcrete);
-            backWall.position.set(0, groundHeight/2 + 0.5, -4); backWall.castShadow = true;
-            houseGroup.add(backWall);
-
-            const groundGlass = new THREE.Mesh(new THREE.BoxGeometry(13.5, groundHeight, 0.1), matGlass);
-            groundGlass.position.set(0, groundHeight/2 + 0.5, 3.8);
-            houseGroup.add(groundGlass);
-            
-            // Üst Kat
-            const upperHeight = 3.8;
-            const upperGroup = new THREE.Group();
-            const upperBody = new THREE.Mesh(new THREE.BoxGeometry(16, upperHeight, 10), matPlaster);
-            upperBody.position.set(1, groundHeight + upperHeight/2 + 0.5, 1);
-            upperBody.castShadow = true; upperBody.receiveShadow = true;
-            upperGroup.add(upperBody);
-
-            const upperNiche = new THREE.Mesh(new THREE.BoxGeometry(12, upperHeight - 0.4, 3), matConcrete);
-            upperNiche.position.set(1, groundHeight + upperHeight/2 + 0.5, 4.6);
-            upperGroup.add(upperNiche);
-
-            houseGroup.add(upperGroup);
-
-            // Havuz
-            const poolGroup = new THREE.Group();
-            const poolBorder = new THREE.Mesh(new THREE.BoxGeometry(10, 0.3, 5), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-            poolBorder.position.set(2, 0.4, 9.5); poolBorder.receiveShadow = true;
-            poolGroup.add(poolBorder);
-
-            const matWater = new THREE.MeshPhysicalMaterial({ color: 0x00bfff, metalness: 0.9, roughness: 0.0, transmission: 0.8, transparent: true, opacity: 0.9 });
-            const poolWater = new THREE.Mesh(new THREE.PlaneGeometry(9.6, 4.6), matWater);
-            poolWater.rotation.x = -Math.PI / 2; poolWater.position.set(2, 0.56, 9.5); 
-            poolGroup.add(poolWater);
-            houseGroup.add(poolGroup);
-
-            // Çevre / Çim
-            const plane = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), new THREE.MeshStandardMaterial({ color: 0x9cb58b, roughness: 1 }));
-            plane.rotation.x = -Math.PI / 2; plane.receiveShadow = true;
-            scene.add(plane);
-
-            scene.add(houseGroup);
-
-            // Render Döngüsü
-            function render() {
-                requestAnimationFrame(render);
-                controls.update();
-                renderer.render(scene, camera);
-            }
-            render();
-
-            // Responsive
-            window.addEventListener('resize', () => {
-                const width = container.clientWidth;
-                const height = container.clientHeight;
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
-                renderer.setSize(width, height);
-            });
+        
+        // Başlangıç Kurulumları
+        window.onload = () => {
+            renderListings();
+            reveal(); 
         };
     </script>
 </body>
