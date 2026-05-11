@@ -79,7 +79,7 @@
         }
 
         .logo img {
-            height: 110px; 
+            height: 90px; 
             width: auto;
             display: block;
             object-fit: contain;
@@ -450,77 +450,157 @@
             line-height: 1;
         }
 
-        /* --- Hizmetlerimiz (Kurumsal) --- */
+        /* --- Hizmetlerimiz (Kurumsal) YENİ LÜKS TASARIM --- */
         .services {
-            padding: 80px 5%;
-            background: var(--bg-base);
+            padding: 100px 5%;
+            background: #ffffff;
+        }
+
+        .services-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-info {
+            flex: 1;
+            position: sticky;
+            top: 120px;
         }
 
         .services-grid {
+            flex: 1.5;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
         .service-card {
-            background: #ffffff;
-            padding: 35px 30px;
-            border-radius: var(--radius-lg);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-ios); }
-        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .service-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- İletişim Alanı --- */
-        .contact-section {
-            padding: 80px 5%;
-            background: #ffffff;
-            border-radius: 40px 40px 0 0;
-            display: flex;
-            gap: 40px;
-            align-items: stretch;
-        }
-        .contact-form-container {
-            flex: 1;
             background: var(--bg-base);
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: var(--radius-lg);
+            transition: all 0.4s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+            z-index: 1;
         }
-        .contact-form-container h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 600; letter-spacing: -0.02em; }
-        .contact-form { display: flex; flex-direction: column; gap: 15px; }
-        
-        .form-group { display: flex; flex-direction: column; gap: 5px; }
-        .contact-form input, .contact-form textarea, .contact-form select {
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.08);
-            font-family: inherit;
-            font-size: 1rem;
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--shadow-hover); 
             background: #ffffff;
-            transition: all 0.3s;
         }
-        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2); }
-        
-        .form-error { color: #ff3b30; font-size: 0.85rem; font-weight: 500; display: none; margin-top: -5px; margin-bottom: 5px;}
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card .icon { 
+            font-size: 2.8rem; 
+            margin-bottom: 25px; 
+            display: inline-block; 
+            background: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -0.01em;}
+        .service-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
+
+        /* --- İletişim Alanı YENİ LÜKS TASARIM --- */
+        .contact-section {
+            padding: 100px 5%;
+            background: var(--bg-base);
+        }
+
+        .contact-wrapper {
+            background: #ffffff;
+            border-radius: 30px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
         .agent-banner {
             flex: 1;
-            background: var(--bg-base);
-            padding: 40px;
+            background: #111; /* Lüks koyu tema */
+            color: #fff;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
-            border-radius: var(--radius-lg);
         }
-        .agent-info { display: flex; align-items: center; gap: 20px; }
-        .agent-avatar { width: 80px; height: 80px; background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; box-shadow: var(--shadow-ios); }
-        .agent-details h4 { font-size: 1.5rem; font-weight: 600; margin-bottom: 5px;}
-        .agent-details p { color: var(--text-muted); font-size: 1rem; }
+
+        .agent-banner .section-title { color: #fff; }
+        .agent-banner .section-subtitle { color: rgba(255,255,255,0.7); margin-bottom: 40px;}
+
+        .agent-info { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            background: rgba(255,255,255,0.05); 
+            padding: 25px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .agent-avatar { 
+            width: 90px; 
+            height: 90px; 
+            background: var(--gold); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 2.5rem; 
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); 
+        }
+        .agent-details h4 { font-size: 1.5rem; font-weight: 600; margin-bottom: 5px; color:#fff;}
+        .agent-details p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+
+        .contact-form-container {
+            flex: 1.2;
+            background: #ffffff;
+            padding: 60px;
+        }
+        .contact-form-container h3 { font-size: 2rem; margin-bottom: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-main); }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .contact-form input, .contact-form textarea, .contact-form select {
+            padding: 18px 20px;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            font-family: inherit;
+            font-size: 1.05rem;
+            background: #fafafa;
+            transition: all 0.3s;
+            color: var(--text-main);
+        }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { 
+            outline: none; 
+            border-color: var(--gold); 
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.1); 
+        }
+        
+        .form-error { color: #ff3b30; font-size: 0.85rem; font-weight: 500; display: none; margin-top: -5px; margin-bottom: 5px;}
 
         /* --- Footer --- */
         footer {
@@ -548,9 +628,16 @@
             .hero { padding: 140px 5% 80px 5%; min-height: 70vh; }
             .hero-content h1 { font-size: 3.5rem; }
             
-            .contact-section { flex-direction: column; }
-            .agent-banner { padding: 30px; align-items: center; text-align: center;}
-            .agent-info { flex-direction: column; }
+            .services-wrapper { flex-direction: column; gap: 40px; }
+            .services-info { position: static; text-align: center; }
+            .services-info .section-title, .services-info .section-subtitle { text-align: center !important; margin-left: auto; margin-right: auto; }
+            
+            .contact-section { padding: 60px 5%; }
+            .contact-wrapper { flex-direction: column; }
+            .agent-banner { padding: 40px 30px; text-align: center; }
+            .agent-banner .section-title, .agent-banner .section-subtitle { text-align: center !important; }
+            .agent-info { flex-direction: column; text-align: center; }
+            .contact-form-container { padding: 40px 30px; }
 
             .detail-container { grid-template-columns: 1fr; margin-top: -30px; }
             .detail-hero { height: 35vh; }
@@ -562,6 +649,7 @@
             .logo img { height: 60px; }
             .hero-content h1 { font-size: 2.5rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 2rem; }
             footer .logo-container img { height: 100px; }
             .detail-specs-grid { grid-template-columns: 1fr 1fr; }
@@ -573,15 +661,15 @@
     <!-- ANA SAYFA KAPSAYICISI -->
     <div id="main-view">
         <header>
-            <a href="#" class="logo" onclick="resetToHome(event)">
+            <a href="#" class="logo" onclick="navigateTo(event, 'anasayfa')">
                 <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span style="display:none; font-size: 1.5rem; font-weight: bold; color: var(--text-main);">Arvas<span style="color:var(--gold);">Group</span></span>
             </a>
             <nav class="nav-links">
-                <a href="#anasayfa" onclick="resetToHome(event)">Anasayfa</a>
-                <a href="#portfoy" onclick="resetToHome(event)">Portföyümüz</a>
-                <a href="#kurumsal" onclick="resetToHome(event)">Kurumsal</a>
-                <a href="#iletisim" onclick="resetToHome(event)">İletişim</a>
+                <a href="#anasayfa" onclick="navigateTo(event, 'anasayfa')">Anasayfa</a>
+                <a href="#portfoy" onclick="navigateTo(event, 'portfoy')">Portföyümüz</a>
+                <a href="#kurumsal" onclick="navigateTo(event, 'kurumsal')">Kurumsal</a>
+                <a href="#iletisim" onclick="navigateTo(event, 'iletisim')">İletişim</a>
             </nav>
         </header>
 
@@ -609,94 +697,97 @@
             </div>
         </section>
 
-        <!-- KURUMSAL / HİZMETLER -->
+        <!-- KURUMSAL / HİZMETLER YENİ LÜKS TASARIM -->
         <section class="services reveal" id="kurumsal">
-            <div class="section-header">
-                <h2 class="section-title">Hizmetlerimiz</h2>
-                <p class="section-subtitle">Arsa, gayrimenkul ve yatırım alanında uçtan uca çözümler.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <span class="icon">🌍</span>
-                    <h3>Arsa Alım & Satım</h3>
-                    <p>Gelişmekte olan bölgelerde, yüksek kazanç potansiyelli imarlı ve tarla vasıflı arsa fırsatları sunuyoruz.</p>
+            <div class="services-wrapper">
+                <div class="services-info">
+                    <h2 class="section-title" style="text-align: left; font-size: 3.5rem;">Kurumsal<br>Hizmetlerimiz</h2>
+                    <p class="section-subtitle" style="text-align: left; margin-bottom: 30px; max-width: 90%;">Arvas Group olarak, arsa, gayrimenkul ve yatırım alanında premium standartlarda uçtan uca danışmanlık çözümleri sunuyoruz.</p>
+                    <a href="#iletisim" class="btn" onclick="navigateTo(event, 'iletisim')">Bize Ulaşın</a>
                 </div>
-                <div class="service-card reveal">
-                    <span class="icon">📈</span>
-                    <h3>Yatırım Danışmanlığı</h3>
-                    <p>Hem topraktan hem de bitmiş projelerden, bütçenize en uygun ve güvenli yatırım rotasını çiziyoruz.</p>
-                </div>
-                <div class="service-card reveal">
-                    <span class="icon">🔑</span>
-                    <h3>Premium Gayrimenkul</h3>
-                    <p>Yalılar, lüks rezidanslar ve özel villalardan oluşan gizli portföyümüzü VIP müşterilerimize sunuyoruz.</p>
-                </div>
-                <div class="service-card reveal">
-                    <span class="icon">⚖️</span>
-                    <h3>Hukuki & İmar Süreçleri</h3>
-                    <p>İfraz, tevhid, imar durumu sorgulama ve tapu işlemlerinizde uzman ekibimizle hukuki destek sağlıyoruz.</p>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <span class="icon">🌍</span>
+                        <h3>Arsa Yatırımları</h3>
+                        <p>Gelişmekte olan bölgelerde, kısa ve orta vadede yüksek kazanç potansiyelli imarlı ve tarla vasıflı arsa fırsatlarını sizin için analiz ediyoruz.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <span class="icon">📈</span>
+                        <h3>Portföy Yönetimi</h3>
+                        <p>Bütçenize ve hedeflerinize en uygun, risksiz ve amortisman süresi kısa yatırım rotasını profesyonel olarak çiziyoruz.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <span class="icon">🔑</span>
+                        <h3>Premium Konutlar</h3>
+                        <p>Yalılar, lüks rezidanslar ve özel mimari villalardan oluşan "Off-Market" (gizli) portföyümüzü VIP müşterilerimize sunuyoruz.</p>
+                    </div>
+                    <div class="service-card reveal">
+                        <span class="icon">⚖️</span>
+                        <h3>Hukuk & İmar</h3>
+                        <p>İfraz, tevhid, belediye imar durumu sorgulama ve karmaşık tapu işlemlerinizde uzman ekibimizle tam hukuki koruma sağlıyoruz.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- İLETİŞİM -->
+        <!-- İLETİŞİM YENİ LÜKS TASARIM -->
         <section class="contact-section reveal" id="iletisim">
-            <div class="agent-banner">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 5px;">Yatırım Danışmanınız</h2>
-                <p class="section-subtitle" style="text-align: left; margin-bottom: 30px;">Doğru mülk için uzman ekibimizle hemen görüşün.</p>
-                <div class="agent-info">
-                    <div class="agent-avatar">👔</div>
-                    <div class="agent-details">
-                        <h4>Muhammed Yakup Arvas</h4>
-                        <p>Arvas Group - Yatırım Uzmanı</p>
-                        <p style="margin-top: 8px; color: var(--gold); font-weight: 600; font-size: 1.1rem;">+90 (552) 848 48 65</p>
-                        <p style="font-size: 0.9rem;">info@arvasgroup.com</p>
+            <div class="contact-wrapper">
+                <div class="agent-banner">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 5px;">Kişisel Yatırım<br>Danışmanınız</h2>
+                    <p class="section-subtitle" style="text-align: left;">Doğru mülk ve kazançlı yatırımlar için uzman ekibimizle hemen görüşün.</p>
+                    
+                    <div class="agent-info" style="margin-top: 20px;">
+                        <div class="agent-avatar">👔</div>
+                        <div class="agent-details">
+                            <h4>Muhammed Yakup Arvas</h4>
+                            <p style="margin-bottom: 8px;">Arvas Group - Kurucu / Yatırım Uzmanı</p>
+                            <p style="color: var(--gold); font-weight: 600; font-size: 1.1rem; margin-bottom: 2px;">+90 (552) 848 48 65</p>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">info@arvasgroup.com</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="contact-form-container">
-                <h3>Sizi Arayalım</h3>
-                <form class="contact-form" id="main-contact-form" onsubmit="handleFormSubmit(event, 'main')">
-                    <div class="form-group">
-                        <input type="text" id="main-name" placeholder="Adınız Soyadınız (Zorunlu)" required minlength="3">
-                        <span class="form-error" id="main-error-name">Lütfen geçerli bir ad soyad giriniz.</span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" id="main-phone" placeholder="Telefon Numaranız (Zorunlu, Örn: 0555...)" required minlength="10" maxlength="15" pattern="[0-9\s\+\-\(\)]+">
-                        <span class="form-error" id="main-error-phone">Lütfen geçerli bir telefon numarası giriniz (En az 10 hane).</span>
-                    </div>
-                    
-                    <select id="main-subject">
-                        <option value="">İlgilendiğiniz Konu (Opsiyonel)</option>
-                        <option value="arsa">Arsa Yatırımı / Alım-Satım</option>
-                        <option value="satinalma">Gayrimenkul Alımı</option>
-                        <option value="satis">Gayrimenkul Satışı</option>
-                        <option value="danismanlik">Danışmanlık Hizmetleri</option>
-                    </select>
-                    
-                    <textarea id="main-msg" placeholder="Mesajınız veya İlan Numarası (Opsiyonel)" rows="3"></textarea>
-                    
-                    <button type="submit" class="btn" id="main-submit-btn">Talep Gönder</button>
-                    <p id="main-success-msg" style="color: #34c759; font-weight: 600; display: none; margin-top: 10px;">Talebiniz başarıyla alındı. Size en kısa sürede dönüş yapacağız!</p>
-                </form>
+                
+                <div class="contact-form-container">
+                    <h3>Sizi Arayalım</h3>
+                    <form class="contact-form" id="main-contact-form" onsubmit="handleFormSubmit(event, 'main')">
+                        <div class="form-group">
+                            <input type="text" id="main-name" placeholder="Adınız Soyadınız (Zorunlu)" required minlength="3">
+                            <span class="form-error" id="main-error-name">Lütfen geçerli bir ad soyad giriniz.</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" id="main-phone" placeholder="Telefon Numaranız (Zorunlu, Örn: 0555...)" required minlength="10" maxlength="15" pattern="[0-9\s\+\-\(\)]+">
+                            <span class="form-error" id="main-error-phone">Lütfen geçerli bir telefon numarası giriniz (En az 10 hane).</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="main-subject">
+                                <option value="">İlgilendiğiniz Konu (Opsiyonel)</option>
+                                <option value="arsa">Arsa Yatırımı / Alım-Satım</option>
+                                <option value="satinalma">Gayrimenkul Alımı</option>
+                                <option value="satis">Gayrimenkul Satışı</option>
+                                <option value="danismanlik">Danışmanlık Hizmetleri</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="main-msg" placeholder="Mesajınız veya İlan Numarası (Opsiyonel)" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="main-submit-btn" style="width: 100%; margin-top: 10px;">Talebi Gönder</button>
+                        <p id="main-success-msg" style="color: #34c759; font-weight: 600; display: none; margin-top: 15px; text-align: center;">Talebiniz başarıyla alındı. Size en kısa sürede dönüş yapacağız!</p>
+                    </form>
+                </div>
             </div>
         </section>
 
         <footer>
-            <div class="logo-container" onclick="resetToHome(event)" style="cursor: pointer;">
-                <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size: 2rem; font-weight: bold; color: var(--text-main); margin-bottom: 20px;">Arvas<span style="color:var(--gold);">Group</span></span>
-            </div>
-            <p>&copy; 2026 Arvas Group Gayrimenkul, Arsa & Danışmanlık.<br>Tüm Hakları Saklıdır.</p>
-        </footer>
-    </div>
-
+            <div class="logo-container" onclick="navigateTo(event, 'anasayfa')" style="cursor: pointer;">
     <!-- İLAN DETAY SAYFASI (GİZLİ MODAL) -->
     <div id="listing-detail-view">
         <div class="detail-navbar">
-            <a href="#" class="logo" onclick="resetToHome(event)">
+            <a href="#" class="logo" onclick="navigateTo(event, 'anasayfa')">
                 <img src="https://i.hizliresim.com/8uyfoan.png" alt="Arvas Group" style="height: 50px;">
             </a>
             <button class="btn-back" onclick="closeListing()">
@@ -969,13 +1060,33 @@
             mainView.style.display = 'block';
         }
 
-        // Logoya basınca her şeyi sıfırla ana sayfaya dön
-        function resetToHome(e) {
-            e.preventDefault();
+        // Akıllı Yönlendirme ve Kaydırma Motoru (Eski resetToHome yerine)
+        function navigateTo(e, targetId) {
+            e.preventDefault(); // Sayfa yenilemesini durdur
+            
+            // Eğer detay sayfasındaysa kapat
             if(detailView.classList.contains('active')) {
                 closeListing();
             }
-            window.scrollTo(0, 0);
+            
+            // Gecikmeli kaydırma (Detay sayfası kapanma animasyonunu bekler)
+            setTimeout(() => {
+                if (targetId === 'anasayfa') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const targetEl = document.getElementById(targetId);
+                    if(targetEl) {
+                        const headerOffset = 80; // Üstteki menünün yüksekliği kadar pay bırak
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                        });
+                    }
+                }
+            }, 100); 
         }
 
         // --- LIGHTBOX YÖNETİMİ ---
